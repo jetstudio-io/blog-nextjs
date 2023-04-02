@@ -1,13 +1,13 @@
 {
   "site": {
-    "title": "Geeky Nextjs",
+    "title": "JetX",
     "base_url": "/",
-    "favicon": "/images/favicon.png",
-    "logo": "/images/logo.png",
-    "logo_white": "/images/logo-light.png",
+    "favicon": "/images/jetx-icon.png",
+    "logo": "/images/jetx.svg",
+    "logo_white": "/images/jetx.svg",
     "logo_width": "150",
     "logo_height": "39",
-    "logo_text": "Geeky"
+    "logo_text": "JetX"
   },
   "settings": {
     "theme_switcher": true,
