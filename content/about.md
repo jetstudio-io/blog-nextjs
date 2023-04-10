@@ -18,16 +18,9 @@ education:
 experience:
   title: Work Experience
   list:
-    - Best Writer Award
-    - Best New Newel
-    - Best Book
-    - Best Article
-    - Best New Newel
-    - Best New Newel
-    - Best Book
-    - Best Article
-    - Best New Newel
-    - Best Book
+    - _2022-Current_ - Tech Lead PHP at Ekwateur
+    - _2018-2022_ - Confirmed Fullstack PHP at Hexaglobe
+    - _2016-2018_ - Developer Backend PHP at Adfab Connect
 
 ---
 
