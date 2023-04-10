@@ -10,9 +10,9 @@ import { markdownify } from "@lib/utils/textConverter";
 import Link from "next/link";
 import { useState } from "react";
 import { FaRegCalendar } from "react-icons/fa";
-import MailchimpSubscribe from "react-mailchimp-subscribe";
+// import MailchimpSubscribe from "react-mailchimp-subscribe";
 const { blog_folder } = config.settings;
-const { about, featured_posts, newsletter } = config.widgets;
+const { about, featured_posts, contact_us } = config.widgets;
 
 const Sidebar = ({ posts, categories, className }) => {
   const sortPostByDate = sortByDate(posts);
@@ -25,7 +25,7 @@ const Sidebar = ({ posts, categories, className }) => {
   return (
     <aside className={`${className} px-0 lg:px-6 lg:col-4`}>
       {about.enable && (
-        <div className="relative rounded border border-border p-6 text-center dark:border-darkmode-border">
+        <div className="relative rounded border border-border p-6 text-center dark:border-darkMode-border">
           <ImageFallback
             className="-z-[1]"
             src="/images/map.svg"
@@ -43,16 +43,16 @@ const Sidebar = ({ posts, categories, className }) => {
 
       {/* categories widget */}
       {categories.enable && (
-        <div className="mt-6 rounded border border-border p-6 dark:border-darkmode-border">
+        <div className="mt-6 rounded border border-border p-6 dark:border-darkMode-border">
           <h4 className="section-title mb-12 text-center">
             {featured_posts.title}
           </h4>
           <ul>
             {categories.map((category, i) => (
               <li
-                className={`relative mb-2 flex items-center justify-between pl-6 text-[16px] font-bold capitalize text-dark dark:text-darkmode-light ${
+                className={`relative mb-2 flex items-center justify-between pl-6 text-[16px] font-bold capitalize text-dark dark:text-darkMode-light ${
                   i !== categories.length - 1 &&
-                  "border-b border-border  dark:border-darkmode-border"
+                  "border-b border-border  dark:border-darkMode-border"
                 }`}
                 key={i}
               >
@@ -87,7 +87,7 @@ const Sidebar = ({ posts, categories, className }) => {
 
       {/* featured widget */}
       {featured_posts.enable && (
-        <div className="mt-6 rounded border border-border p-6 dark:border-darkmode-border">
+        <div className="mt-6 rounded border border-border p-6 dark:border-darkMode-border">
           <h4 className="section-title mb-12 text-center">Featured</h4>
           <div className="mb-12 flex items-center justify-center">
             <button
@@ -114,7 +114,7 @@ const Sidebar = ({ posts, categories, className }) => {
                   <div
                     className={`flex items-center ${
                       i !== arr.length - 1 &&
-                      "mb-6 border-b border-border pb-6 dark:border-darkmode-border"
+                      "mb-6 border-b border-border pb-6 dark:border-darkMode-border"
                     }`}
                     key={`key-${i}`}
                   >
@@ -149,7 +149,7 @@ const Sidebar = ({ posts, categories, className }) => {
                   <div
                     className={`flex items-center pb-6 ${
                       i !== arr.length - 1 &&
-                      "mb-6 border-b dark:border-b-darkmode-border"
+                      "mb-6 border-b dark:border-b-darkMode-border"
                     }`}
                     key={`key-${i}`}
                   >
@@ -181,30 +181,37 @@ const Sidebar = ({ posts, categories, className }) => {
         </div>
       )}
 
-      {/* newsletter */}
-      {newsletter.enable && (
-        <div className="mt-6  rounded border border-border p-6 text-center dark:border-darkmode-border">
-          <h4 className="section-title">{newsletter.title}</h4>
-          <p className="mt-10 text-xs">{newsletter.content}</p>
-          <MailchimpSubscribe
-            url={newsletter.malichip_url}
-            render={({ subscribe, status, message }) => (
-              <CustomForm
-                onValidated={(formData) => subscribe(formData)}
-                status={status}
-                message={message}
-              />
-            )}
-          />
-          <p className="text-xs">
-            By Singing Up, You Agree To
-            <Link
-              href={newsletter.privacy_policy_page}
-              className="ml-1 text-primary"
-            >
-              Privacy Policy
-            </Link>
-          </p>
+      {/* contact_us */}
+      {contact_us.enable && (
+        <div className="mt-6  rounded border border-border p-6 text-center dark:border-darkMode-border">
+          <h4 className="section-title">{contact_us.title}</h4>
+          <p className="mt-10 text-xs">{contact_us.content}</p>
+          <div className="m-7">
+            <form action="https://api.web3forms.com/submit" method="POST" id="form">
+              <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY_HERE"/>
+              <input type="hidden" name="subject" value="New Submission from Web3Forms"/>
+              <div className="mb-6">
+                <input type="text" name="name" id="name" placeholder="Your Name" required
+                       className="w-full px-3 py-2 rounded-sm placeholder-gray-500 text-gray-900 bg-gray-100 text-sm focus:outline-none"/>
+              </div>
+              <div className="mb-6">
+                <input type="email" name="email" id="email" placeholder="you@your-company.com" required
+                       className="w-full px-3 py-2 rounded-sm placeholder-gray-500 text-gray-900 bg-gray-100 text-sm focus:outline-none"/>
+              </div>
+              <div className="mb-6">
+                <textarea rows="5" name="message" id="message" placeholder="Your Message"
+                          className="w-full px-3 py-2 rounded-sm placeholder-gray-500 text-gray-900 bg-gray-100 text-sm focus:outline-none"
+                          required></textarea>
+              </div>
+              <div className="mb-6">
+                <button type="submit"
+                        className="w-full bg-indigo-600 inline-block text-white no-underline hover:text-indigo-100 py-4 px-4 rounded-sm focus:outline-none">
+                  Send Message
+                </button>
+              </div>
+              <p className="text-base text-center text-gray-400" id="result"></p>
+            </form>
+          </div>
         </div>
       )}
     </aside>

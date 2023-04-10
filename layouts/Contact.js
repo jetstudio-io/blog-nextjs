@@ -26,7 +26,7 @@ const Contact = ({ data }) => {
               "h1 my-10 lg:my-11 lg:pt-11 text-center lg:text-left lg:text-[64px]"
             )}
           </div>
-          <div className="contact-form-wrapper rounded border border-border p-6 dark:border-darkmode-border lg:col-6">
+          <div className="contact-form-wrapper rounded border border-border p-6 dark:border-darkMode-border lg:col-6">
             <h2>
               Send Us A
               <span className="ml-1.5 inline-flex items-center text-primary">
@@ -111,10 +111,10 @@ const Contact = ({ data }) => {
               <Link
                 href={`tel:${phone}`}
                 className="my-4 flex h-[100px] items-center justify-center
-             rounded border border-border p-4 text-primary dark:border-darkmode-border"
+             rounded border border-border p-4 text-primary dark:border-darkMode-border"
               >
                 <FaUserAlt />
-                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkmode-light">
+                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkMode-light">
                   {phone}
                 </p>
               </Link>
@@ -125,10 +125,10 @@ const Contact = ({ data }) => {
               <Link
                 href={`mailto:${mail}`}
                 className="my-4 flex h-[100px] items-center justify-center
-             rounded border border-border p-4 text-primary dark:border-darkmode-border"
+             rounded border border-border p-4 text-primary dark:border-darkMode-border"
               >
                 <FaEnvelope />
-                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkmode-light">
+                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkMode-light">
                   {mail}
                 </p>
               </Link>
@@ -138,10 +138,10 @@ const Contact = ({ data }) => {
             <div className="md:col-6 lg:col-4">
               <span
                 className="my-4 flex h-[100px] items-center justify-center
-             rounded border border-border p-4 text-primary dark:border-darkmode-border"
+             rounded border border-border p-4 text-primary dark:border-darkMode-border"
               >
                 <FaMapMarkerAlt />
-                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkmode-light">
+                <p className="ml-1.5 text-lg font-bold text-dark dark:text-darkMode-light">
                   {location}
                 </p>
               </span>

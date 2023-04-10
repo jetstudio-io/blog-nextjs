@@ -11,7 +11,7 @@
   },
   "settings": {
     "theme_switcher": true,
-    "default_theme": "system",
+    "default_theme": "dark",
     "pagination": 6,
     "summary_length": 200,
     "blog_folder": "posts"
@@ -19,12 +19,12 @@
   "params": {
     "tag_manager_id": "",
     "footer_content": "Lorem ipsum dolor sit amt, conse adip iscing. donec iaculis tempasus laoreet. Libero ullam rgscper.",
-    "copyright": "Designed and Developed By [Statichunt](https://statichunt.com/)"
+    "copyright": "Designed by [Statichunt](https://statichunt.com/)"
   },
   "metadata": {
-    "meta_author": "Statichunt",
+    "meta_author": "Louis Nguyen",
     "meta_image": "/images/og-image.png",
-    "meta_description": "Geeky Nextjs Personal Blog Template"
+    "meta_description": "Louis's blog"
   },
   "widgets": {
     "about": {
@@ -40,12 +40,10 @@
       "enable": true,
       "title": "Blog Categories"
     },
-    "newsletter": {
+    "contact_us": {
       "enable": true,
-      "title": "Newsletter",
-      "content": "Join thousands of Tiny Salt subscribers and get our best recipes delivered each week!",
-      "privacy_policy_page": "#",
-      "malichipm_url": ""
+      "title": "Contact Us",
+      "content": "Join thousands of Tiny Salt subscribers and get our best recipes delivered each week!"
     }
   },
   "disqus": {

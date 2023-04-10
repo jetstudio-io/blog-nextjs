@@ -81,7 +81,7 @@ Some text to show that the reference links can follow later.
 
 ### Unordered List
 
-- List item
+- _List item_
 - List item
 - List item
 - List item
