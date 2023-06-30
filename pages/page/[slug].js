@@ -3,6 +3,7 @@ import Base from "@layouts/Baseof";
 import Pagination from "@layouts/components/Pagination";
 import { getListPage, getSinglePage } from "@lib/contentParser";
 import { markdownify } from "@lib/utils/textConverter";
+import { sortByDate } from "@lib/utils/sortFunctions";
 import Post from "@partials/Post";
 const { blog_folder, summary_length } = config.settings;
 
@@ -10,7 +11,8 @@ const { blog_folder, summary_length } = config.settings;
 const BlogPagination = ({ postIndex, posts, currentPage, pagination }) => {
   const indexOfLastPost = currentPage * pagination;
   const indexOfFirstPost = indexOfLastPost - pagination;
-  const currentPosts = posts.slice(indexOfFirstPost, indexOfLastPost);
+  const orderedPosts = sortByDate(posts);
+  const currentPosts = orderedPosts.slice(indexOfFirstPost, indexOfLastPost);
   const { frontmatter } = postIndex;
   const { title } = frontmatter;
   const totalPages = Math.ceil(posts.length / pagination);

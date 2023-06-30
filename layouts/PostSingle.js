@@ -1,5 +1,6 @@
 import config from "@config/config.json";
 import Base from "@layouts/Baseof";
+import InnerPagination from "@layouts/components/InnerPagination";
 import dateFormat from "@lib/utils/dateFormat";
 import { markdownify } from "@lib/utils/textConverter";
 import { DiscussionEmbed } from "disqus-react";
@@ -27,6 +28,12 @@ const PostSingle = ({
   description = description ? description : content.slice(0, 120);
 
   const { theme } = useTheme();
+  const author = frontmatter.author ? frontmatter.author : meta_author;
+  // Local copy so we don't modify global config.
+  let disqusConfig = config.disqus.settings;
+  disqusConfig.identifier = frontmatter.disqusId
+    ? frontmatter.disqusId
+    : config.settings.blog_folder + "/" + slug;
 
   return (
     <Base title={title} description={description}>
@@ -61,7 +68,12 @@ const PostSingle = ({
                     ))}
                   </ul>
                 </div>
-                {markdownify(title, "h1", "lg:text-[42px] mt-16")}
+                {config.settings.InnerPaginationOptions.enableTop && (
+                  <div className="mt-4">
+                    <InnerPagination posts={posts} date={date} />
+                  </div>
+                )}
+                {markdownify(title, "h1", "lg:text-[42px] mt-4")}
                 <ul className="flex items-center space-x-4">
                   <li>
                     <Link
@@ -69,7 +81,7 @@ const PostSingle = ({
                       href="/about"
                     >
                       <FaUserAlt className="mr-1.5" />
-                      {meta_author}
+                      {author}
                     </Link>
                   </li>
                   <li className="inline-flex items-center font-secondary text-xs leading-3">
@@ -80,13 +92,16 @@ const PostSingle = ({
                 <div className="content mb-16">
                   <MDXRemote {...mdxContent} components={shortcodes} />
                 </div>
+                {config.settings.InnerPaginationOptions.enableBottom && (
+                  <InnerPagination posts={posts} date={date} />
+                )}
               </article>
               <div className="mt-16">
                 {disqus.enable && (
                   <DiscussionEmbed
                     key={theme}
                     shortname={disqus.shortname}
-                    config={config.disqus.settings}
+                    config={disqusConfig}
                   />
                 )}
               </div>
