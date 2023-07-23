@@ -4,19 +4,15 @@ image: /images/author.png
 description: "meta description"
 layout: about
 education:
-  title: Formal Education
+  title: Formal Educations
   degrees:
-    - university: "Southeast University"
-      content: "1985 • 1991 • gravida nibh velvelit auctor alimo quet menean solli"
-    - university: "Northeast University"
-      content: "1985 • 1991 • gravida nibh velvelit auctor alimo quet menean solli"
-    - university: "Easteast University"
-      content: "1985 • 1991 • gravida nibh velvelit auctor alimo quet menean solli"
-    - university: "Southeast University"
-      content: "1985 • 1991 • gravida nibh velvelit auctor alimo quet menean solli"  
+    - university: "Lyon 1 University"
+      content: "_2007 • 2010_ • Master 2 in Informatics - System & Network of telecommunication"
+    - university: "Vietnam National University"
+      content: "_2003 • 2007_ • System & Network of telecommunication"  
 
 experience:
-  title: Work Experience
+  title: Work Experiences
   list:
     - _2022-Current_ - Tech Lead PHP at Ekwateur
     - _2018-2022_ - Confirmed Fullstack PHP at Hexaglobe

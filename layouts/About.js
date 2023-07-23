@@ -15,7 +15,7 @@ const About = ({ data }) => {
             <Image
               src={image}
               width={1298}
-              height={616}
+              height={600}
               alt={title}
               className="rounded-lg"
               priority={true}
