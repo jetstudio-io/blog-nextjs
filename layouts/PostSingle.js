@@ -2,16 +2,17 @@ import config from "@config/config.json";
 import Base from "@layouts/Baseof";
 import InnerPagination from "@layouts/components/InnerPagination";
 import dateFormat from "@lib/utils/dateFormat";
-import { markdownify } from "@lib/utils/textConverter";
-import { DiscussionEmbed } from "disqus-react";
-import { MDXRemote } from "next-mdx-remote";
-import { useTheme } from "next-themes";
+import {markdownify} from "@lib/utils/textConverter";
+import {DiscussionEmbed} from "disqus-react";
+import {MDXRemote} from "next-mdx-remote";
+import {useTheme} from "next-themes";
 import Image from "next/image";
 import Link from "next/link";
-import { FaRegCalendar, FaUserAlt } from "react-icons/fa";
+import {FaRegCalendar, FaUserAlt} from "react-icons/fa";
 import Post from "./partials/Post";
 import Sidebar from "./partials/Sidebar";
 import shortcodes from "./shortcodes/all";
+
 const { disqus } = config;
 const { meta_author } = config.metadata;
 
@@ -24,7 +25,7 @@ const PostSingle = ({
   allCategories,
   relatedPosts,
 }) => {
-  let { description, title, date, image, categories } = frontmatter;
+  let { description, title, date, image, imageCaption, categories } = frontmatter;
   description = description ? description : content.slice(0, 120);
 
   const { theme } = useTheme();
@@ -51,6 +52,9 @@ const PostSingle = ({
                       alt={title}
                       className="rounded-lg"
                     />
+                  )}
+                  {imageCaption && (
+                    <span dangerouslySetInnerHTML={{__html: imageCaption}} />
                   )}
                   <ul className="absolute top-3 left-2 flex flex-wrap items-center">
                     {categories.map((tag, index) => (

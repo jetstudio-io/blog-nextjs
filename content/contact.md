@@ -1,9 +1,9 @@
 ---
 title: "Let’s, Talk </br> About You"
 description: "meta description"
-phone: "+211234565523"
-mail: "info@email.com"
-location: "9567 Turner Trace Apt. BC C3G8A4"
+phone: "+33"
+mail: "dev@jetstudio.io"
+location: "Paris, France"
 form_action: "#"
 layout: "contact"
 addresses:

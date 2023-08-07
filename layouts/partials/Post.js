@@ -2,7 +2,7 @@ import config from "@config/config.json";
 import ImageFallback from "@layouts/components/ImageFallback";
 import dateFormat from "@lib/utils/dateFormat";
 import Link from "next/link";
-import { FaRegCalendar, FaUserAlt } from "react-icons/fa";
+import {FaRegCalendar, FaUserAlt} from "react-icons/fa";
 
 const Post = ({ post }) => {
   const { summary_length, blog_folder } = config.settings;
@@ -59,7 +59,7 @@ const Post = ({ post }) => {
           {dateFormat(post.frontmatter.date)}
         </li>
       </ul>
-      <p>{post.content.slice(0, Number(summary_length))}</p>
+      <p>{post.frontmatter.summary ? post.frontmatter.summary.slice(0, Number(summary_length)) : post.content.slice(0, Number(summary_length))}</p>
       <Link
         className="btn btn-outline-primary mt-4"
         href={`/${blog_folder}/${post.slug}`}
